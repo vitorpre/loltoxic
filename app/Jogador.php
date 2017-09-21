@@ -21,6 +21,11 @@ class Jogador extends Model
     {
         return $this->hasMany('App\Denuncia', 'jogador_id');
     }
+    
+    public function denunciasAprovadas()
+    {
+        return $this->hasMany('App\Denuncia', 'jogador_id')->where("status", "2");
+    }
 
 
 }

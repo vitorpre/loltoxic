@@ -54,6 +54,13 @@
                         <span class="form-text"></span>
                     </div>
                 </div>
+		
+		<div class="form-group row">
+                    <label class="col-md-3 form-control-label text-right" for="imagemPrincipal"></label>
+                    <div class="col-md-4">
+                        {!! app('captcha')->display(); !!}
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <input type="submit" value="enviar" />

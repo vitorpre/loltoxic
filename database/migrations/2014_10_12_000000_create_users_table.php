@@ -16,11 +16,19 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+	    $table->string('login')->unique();
             $table->string('email')->unique();
             $table->string('password');
+	    $table->unsignedInteger('tipo_usuario_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
+	    
+//	    $table->foreign('tipo_usuario_id')->references('idTipoUsuario')->on('tipo_usuario');
         });
+	
+	Schema::table('users', function($table) {
+	    $table->foreign('tipo_usuario_id')->references('idTipoUsuario')->on('tipo_usuario');
+	});
     }
 
     /**

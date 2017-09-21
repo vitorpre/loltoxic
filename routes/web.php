@@ -27,9 +27,24 @@ Route::get('cadastro/denuncia', [
 
 ]);
 
+Route::get('aprovacao/denuncia', [
+    'uses' => 'DenunciaController@listagemUltimasDenuncias',
+    'as' => 'publico.aprovacao.denuncia'
+
+]);
+
 Route::post('cadastro/executa/denuncia', [
     'uses' => 'DenunciaController@executarDenunciaJogador',
     'as' => 'cadastro.executa.denuncia'
 
 ]);
 
+Route::put('aprovacao/denuncia/{denuncia_id?}', [
+    'uses' => 'DenunciaController@aprovarDenuncia',
+    'as' => 'cadastro.aprovar.denuncia'
+
+]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

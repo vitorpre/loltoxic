@@ -7,7 +7,7 @@
 		<div class="">
 	    	<h1 class="">{{ $jogador->username }}</h1>
 	    </div>
-		@foreach ($jogador->denuncias as $denuncia)
+		@foreach ($jogador->denunciasAprovadas as $denuncia)
 
 			<div class="denuncia">
 				<h3 class="data-denuncia">
